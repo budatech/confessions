@@ -4,6 +4,11 @@ from discord.ui import Modal, TextInput, View, Button
 import random
 import logging
 import sqlite3
+import os
+
+
+TOKEN = os.getenv('DISCORD_TOKEN')
+
 
 intents = discord.Intents.default()
 intents.messages = True  # Ensure the bot can listen to messages
@@ -266,7 +271,7 @@ async def on_ready():
         print(f"Error syncing commands: {e}")
 
 if __name__ == "__main__":
-    client.run('MTI4NDM5MDQ1MTMzNTY1OTU1MA.GZE4in.PRszVhzfgrBXdAF7luUoOdVH4zgYMn_HXMhNVE')  # Replace with your actual token
+    client.run(TOKEN)  # Replace with your actual token
 
     # Close the database connection when the bot shuts down
     close_db()
